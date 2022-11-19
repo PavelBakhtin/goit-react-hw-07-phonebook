@@ -36,9 +36,8 @@ export const StyledFormButton = styled.button`
   }
 `;
 export const StyledInput = styled.input`
-  box-sizing: border-box;
+  box-sizing: box;
   width: 100%;
-
   :focus {
     outline-color: #0061a7;
   }
