@@ -10,7 +10,10 @@ export const Filter = () => {
   };
   return (
     <>
-      <label style={{ marginBottom: 10, display: 'inline-block' }} for="filter">
+      <label
+        style={{ marginBottom: 10, display: 'inline-block' }}
+        htmlFor="filter"
+      >
         Find contacts by name
       </label>
       <StyledInput type="text" name="filter" onChange={onFilter} />
