@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 export const StyledApp = styled.div`
-  width: 350px;
   margin: auto;
   text-align: left;
   padding: 20px;
-  border: 1px solid #124d77;
+  border: 2px solid #007dc1;
+  @media (min-width: 900px) {
+    width: 50%;
+  }
+  @media (min-width: 320px) {
+    width: 75%;
+  }
 `;

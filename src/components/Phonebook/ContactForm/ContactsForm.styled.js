@@ -4,11 +4,14 @@ export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: right;
-  justify-content: start;
-  padding: 8px;
-  margin-right: 8px;
+  gap: 8px;
+`;
+export const FormButtonDiv = styled.div`
+  display: flex;
+  justify-content: center;
 `;
 export const StyledFormButton = styled.button`
+  width: 150px;
   margin-top: 16px;
   box-shadow: inset 0px 1px 0px 0px #54a3f7;
   background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
@@ -30,5 +33,13 @@ export const StyledFormButton = styled.button`
   :active {
     position: relative;
     top: 1px;
+  }
+`;
+export const StyledInput = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+
+  :focus {
+    outline-color: #0061a7;
   }
 `;
