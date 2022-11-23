@@ -5,19 +5,25 @@ import {
   StyledInput,
   FormButtonDiv,
 } from './ContactsForm.styled';
-import { useDispatch } from 'react-redux';
-import { addContact } from 'components/redux/contactsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'components/redux/operations';
+import { getContacts } from 'components/redux/selectors';
 export const ContactForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
     const newContact = {
-      id: nanoid(),
       name: form.elements.name.value,
       number: form.elements.number.value,
     };
-    dispatch(addContact(newContact));
+    const contactNames = contacts.map(contact => contact.name);
+    if (contactNames.includes(newContact.name)) {
+      return alert(`${newContact.name} is already in contacts.`);
+    } else {
+      dispatch(addContact(newContact));
+    }
     form.reset();
   };
   const nameInputId = nanoid();
