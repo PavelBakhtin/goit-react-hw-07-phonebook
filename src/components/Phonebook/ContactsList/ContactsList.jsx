@@ -7,15 +7,10 @@ import {
 import { getContacts, getFilter } from 'components/redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'components/redux/operations';
-import { useEffect } from 'react';
-import { fetchContacts } from 'components/redux/operations';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
   const onFilter = useSelector(getFilter);
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
   const contacts = useSelector(getContacts);
   const normalizedFilter = onFilter.toLowerCase();
   const visibleContacts = contacts.filter(contact =>
@@ -23,8 +18,6 @@ export const ContactsList = () => {
   );
   return (
     <StyledContactsList>
-      {/* {isLoading && <p>Loading contacts...</p>}
-      {error && <p>{error}</p>} */}
       {contacts.length > 0 &&
         visibleContacts.map(({ id, name, number }) => (
           <StyledContactsLi key={id}>
